@@ -1,0 +1,299 @@
+
+<style>
+:root{--ink:#0a0a0a;--ink2:#3a3a3a;--ink3:#6b6b6b;--gold:#b8860b;--gold-l:#f5e6b8;--navy:#0c2340;--navy-m:#1a3a5c;--navy-l:#e8f0f8;--red:#8b1a1a;--red-l:#fae8e8;--green:#1a5c2a;--green-l:#e8f5ec;--teal:#0a4a4a;--teal-l:#e0f5f5;--amber:#7a4a00;--amber-l:#fdf0dc;--border:rgba(0,0,0,0.12);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Georgia',serif;background:transparent;color:var(--ink);}
+.page{width:100%;max-width:900px;margin:0 auto;padding:0 0 24px;}
+.masthead2{background:var(--navy-m);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;}
+.mh2-title{color:#fff;font-size:15px;font-weight:700;letter-spacing:-0.3px;}
+.mh2-title span{color:var(--gold);}
+.mh2-right{text-align:right;}
+.mh2-pg{background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;padding:3px 10px;letter-spacing:1px;text-transform:uppercase;}
+.body{padding:16px 20px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
+.card{background:#fff;border:0.5px solid var(--border);padding:12px 14px;}
+.card-title{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--gold);}
+.sec-hd{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin:14px 0 8px;padding:6px 10px;background:var(--navy-l);border-left:3px solid var(--gold);}
+.row{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;}
+.dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.dot-n{background:var(--navy);color:#fff;}
+.dot-g{background:var(--green);color:#fff;}
+.dot-r{background:var(--red);color:#fff;}
+.dot-a{background:var(--amber);color:#fff;}
+.dot-t{background:var(--teal);color:#fff;}
+.dot-gold{background:var(--gold);color:var(--navy);}
+.rt{font-size:11px;color:var(--ink2);line-height:1.5;}
+.rt strong{color:var(--ink);font-weight:700;}
+.formula{background:var(--navy);padding:8px 12px;margin:8px 0;font-size:10px;color:#fff;font-family:'Arial',sans-serif;line-height:1.7;}
+.formula span{color:var(--gold);font-weight:700;}
+.table-sm{width:100%;border-collapse:collapse;font-size:10px;font-family:'Arial',sans-serif;}
+.table-sm th{background:var(--navy);color:#fff;padding:5px 8px;text-align:left;font-size:9px;letter-spacing:0.5px;}
+.table-sm td{padding:4px 8px;border-bottom:0.5px solid var(--border);color:var(--ink2);}
+.table-sm td:first-child{color:var(--ink);font-weight:600;}
+.table-sm tr:nth-child(even) td{background:rgba(0,0,0,0.02);}
+.kpi-col{display:flex;flex-direction:column;gap:6px;}
+.kpi-item{background:var(--navy-l);padding:8px 10px;border-left:3px solid var(--navy);}
+.kpi-name{font-size:10px;font-weight:700;color:var(--navy);font-family:'Arial',sans-serif;}
+.kpi-desc{font-size:9px;color:var(--ink3);font-family:'Arial',sans-serif;line-height:1.4;margin-top:2px;}
+.kpi-item.g{border-left-color:var(--green);background:var(--green-l);}
+.kpi-item.g .kpi-name{color:var(--green);}
+.kpi-item.r{border-left-color:var(--red);background:var(--red-l);}
+.kpi-item.r .kpi-name{color:var(--red);}
+.kpi-item.a{border-left-color:var(--amber);background:var(--amber-l);}
+.kpi-item.a .kpi-name{color:var(--amber);}
+.kpi-item.t{border-left-color:var(--teal);background:var(--teal-l);}
+.kpi-item.t .kpi-name{color:var(--teal);}
+.risk-box{padding:8px 10px;margin-bottom:6px;border-left:4px solid;}
+.rb-high{background:var(--red-l);border-color:var(--red);}
+.rb-med{background:var(--amber-l);border-color:var(--amber);}
+.rb-low{background:var(--green-l);border-color:var(--green);}
+.rb-title{font-size:10px;font-weight:700;font-family:'Arial',sans-serif;}
+.rb-title.h{color:var(--red);}
+.rb-title.m{color:var(--amber);}
+.rb-title.l{color:var(--green);}
+.rb-text{font-size:9.5px;color:var(--ink2);font-family:'Arial',sans-serif;line-height:1.4;margin-top:2px;}
+.ai-tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.ai-tool{background:var(--navy);padding:10px 12px;}
+.ai-tool-title{color:var(--gold);font-size:10px;font-weight:700;font-family:'Arial',sans-serif;margin-bottom:4px;}
+.ai-tool-text{color:rgba(255,255,255,0.8);font-size:9.5px;font-family:'Arial',sans-serif;line-height:1.5;}
+.future-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;padding:8px;background:var(--navy-l);}
+.fut-yr{font-size:12px;font-weight:700;color:var(--navy);font-family:'Arial',sans-serif;min-width:50px;border-right:2px solid var(--gold);padding-right:8px;margin-right:2px;}
+.fut-text{font-size:10.5px;color:var(--ink2);font-family:'Arial',sans-serif;line-height:1.5;}
+.fut-text strong{color:var(--navy);}
+.highlight-box{background:var(--gold-l);border:1px solid var(--gold);padding:8px 12px;margin:8px 0;font-size:10.5px;font-family:'Arial',sans-serif;line-height:1.6;color:var(--amber);}
+.highlight-box strong{color:var(--navy);font-size:11px;}
+.pill{display:inline-block;font-size:9px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:0.5px;margin:2px;font-family:'Arial',sans-serif;}
+.pill-n{background:var(--navy-l);color:var(--navy);}
+.pill-g{background:var(--green-l);color:var(--green);}
+.pill-r{background:var(--red-l);color:var(--red);}
+.pill-a{background:var(--amber-l);color:var(--amber);}
+.pill-gold{background:var(--gold-l);color:var(--amber);}
+.divider{border:none;border-top:1px solid var(--border);margin:10px 0;}
+.framework-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.fw-box{border:0.5px solid var(--border);padding:8px 10px;}
+.fw-title{font-size:10px;font-weight:700;color:var(--navy);font-family:'Arial',sans-serif;margin-bottom:4px;}
+.fw-text{font-size:9px;color:var(--ink3);font-family:'Arial',sans-serif;line-height:1.4;}
+.matrix-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.mx-box{padding:8px 10px;border:0.5px solid var(--border);}
+.mx-label{font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;font-family:'Arial',sans-serif;}
+.mx-content{font-size:10px;font-family:'Arial',sans-serif;line-height:1.5;color:var(--ink2);}
+.checklist-col{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.ck-item{display:flex;gap:5px;font-size:10px;font-family:'Arial',sans-serif;color:var(--ink2);line-height:1.4;padding:3px 0;}
+.ck-icon{color:var(--green);font-weight:700;flex-shrink:0;}
+.final-strip{background:var(--navy);padding:14px 20px;margin-top:12px;}
+.fs-title{color:var(--gold);font-size:13px;font-weight:700;font-family:'Arial',sans-serif;margin-bottom:8px;}
+.fs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.fs-box{text-align:center;}
+.fs-icon{font-size:18px;margin-bottom:4px;}
+.fs-label{font-size:9px;color:rgba(255,255,255,0.7);font-family:'Arial',sans-serif;line-height:1.4;}
+.fs-label strong{color:#fff;display:block;font-size:10px;}
+.sourcing-steps{display:flex;gap:0;margin:8px 0;flex-wrap:nowrap;overflow-x:auto;}
+.ss{flex:1;min-width:80px;background:var(--navy-l);border:0.5px solid rgba(12,35,64,0.2);padding:6px 5px;font-size:9px;text-align:center;font-family:'Arial',sans-serif;position:relative;}
+.ss strong{display:block;color:var(--navy);font-size:9.5px;font-weight:700;margin-bottom:2px;}
+.ss span{color:var(--ink3);font-size:8.5px;}
+.ss-arrow{display:flex;align-items:center;color:var(--gold);font-size:12px;font-weight:700;padding:0 2px;flex-shrink:0;}
+</style>
+
+<div class="page">
+<div class="masthead2">
+  <div>
+    <div class="mh2-title">THE COMPLETE PROCUREMENT INTELLIGENCE MASTERSHEET · <span>OPERATIONS, RISK & FUTURE AI</span></div>
+    <div style="color:rgba(255,255,255,0.5);font-size:9px;font-family:'Arial',sans-serif;margin-top:3px;">Balamurugan G · Senior Supply Chain & Procurement Leader · Chennai · IIMM Full Member F/3737/MD</div>
+  </div>
+  <div class="mh2-right">
+    <div class="mh2-pg">Page 2 of 2</div>
+    <div style="color:rgba(255,255,255,0.4);font-size:8px;font-family:'Arial',sans-serif;margin-top:4px;letter-spacing:1px;">OPERATIONAL MASTERCLASS</div>
+  </div>
+</div>
+
+<div class="body">
+
+<div class="sec-hd">SECTION 6 · THE COMPLETE PROCUREMENT KPI DASHBOARD (6 PILLARS · MODERN CPO STANDARD)</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;">
+  <div class="card">
+    <div class="card-title" style="border-color:#1a3a5c;">1 · Cost & Value KPIs</div>
+    <div class="kpi-col">
+      <div class="kpi-item"><div class="kpi-name">Total Cost of Ownership (TCO)</div><div class="kpi-desc">Purchase price + quality + delivery + inventory + end-of-life disposal cost</div></div>
+      <div class="kpi-item"><div class="kpi-name">Spend Under Management (%)</div><div class="kpi-desc">Target: >85%. Below 70% = maverick spend crisis</div></div>
+      <div class="kpi-item"><div class="kpi-name">Cost Savings vs Cost Avoidance</div><div class="kpi-desc">Savings = actual reduction · Avoidance = price increase prevented</div></div>
+      <div class="kpi-item"><div class="kpi-name">Price Variance by Category</div><div class="kpi-desc">Budget vs actual · Flag >5% variance for review</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="border-color:var(--green);">2 · Supplier Performance KPIs</div>
+    <div class="kpi-col">
+      <div class="kpi-item g"><div class="kpi-name">On-Time Delivery Rate (OTDR)</div><div class="kpi-desc">Target: >95%. Below 90% = SLA breach trigger</div></div>
+      <div class="kpi-item g"><div class="kpi-name">Supplier Quality Score / Defect Rate</div><div class="kpi-desc">PPM (parts per million) defects · Target: <500 PPM</div></div>
+      <div class="kpi-item g"><div class="kpi-name">SLA Compliance Rate</div><div class="kpi-desc">% of agreed terms met across lead time, quality, pricing</div></div>
+      <div class="kpi-item g"><div class="kpi-name">Supplier Scorecard (Quarterly)</div><div class="kpi-desc">Weighted: Quality 40% + Delivery 30% + Cost 20% + ESG 10%</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="border-color:var(--amber);">3 · Procurement Efficiency KPIs</div>
+    <div class="kpi-col">
+      <div class="kpi-item a"><div class="kpi-name">PO Cycle Time</div><div class="kpi-desc">Requisition to PO issuance · Best-in-class: < 24 hours automated</div></div>
+      <div class="kpi-item a"><div class="kpi-name">Cost per Purchase Order</div><div class="kpi-desc">Manual: ₹800–2,500 · Automated: ₹80–250 · AI: < ₹50</div></div>
+      <div class="kpi-item a"><div class="kpi-name">Touchless Procurement Rate</div><div class="kpi-desc">Target: >60% of POs processed without human touch</div></div>
+      <div class="kpi-item a"><div class="kpi-name">Digital Adoption Rate</div><div class="kpi-desc">% of transactions via digital/e-catalog vs manual requisition</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="border-color:var(--red);">4 · Risk & Resilience KPIs</div>
+    <div class="kpi-col">
+      <div class="kpi-item r"><div class="kpi-name">Single-Source Dependency Ratio</div><div class="kpi-desc">Target: <20% of critical spend on single supplier. >40% = board-level risk</div></div>
+      <div class="kpi-item r"><div class="kpi-name">Supplier Risk Exposure Index</div><div class="kpi-desc">Financial health + geopolitical + ESG + operational composite score</div></div>
+      <div class="kpi-item r"><div class="kpi-name">Supply Disruption Rate</div><div class="kpi-desc">Number of disruptions per quarter · Track recovery time (MTTR)</div></div>
+      <div class="kpi-item r"><div class="kpi-name">Business Continuity Score</div><div class="kpi-desc">% of critical categories with approved alternate vendor pre-qualified</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="border-color:var(--teal);">5 · ESG & Sustainability KPIs</div>
+    <div class="kpi-col">
+      <div class="kpi-item t"><div class="kpi-name">% Spend with Sustainable Suppliers</div><div class="kpi-desc">Target 2025: >30%. Target 2030: >60% per global ESG mandates</div></div>
+      <div class="kpi-item t"><div class="kpi-name">Carbon Footprint per Supplier</div><div class="kpi-desc">Scope 3 emissions tracking · Now a regulatory requirement (EU CSRD)</div></div>
+      <div class="kpi-item t"><div class="kpi-name">Diversity Supplier Spend (%)</div><div class="kpi-desc">MSMEs, women-owned, minority-owned · ESG investor scrutiny</div></div>
+      <div class="kpi-item t"><div class="kpi-name">Waste Reduction Metrics</div><div class="kpi-desc">Packaging waste, returns rate, end-of-life recovery % per category</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="border-color:var(--gold);">6 · Digital Procurement KPIs</div>
+    <div class="kpi-col">
+      <div class="kpi-item"><div class="kpi-name">AI-Driven Spend Coverage</div><div class="kpi-desc">% of spend categories with AI should-cost models active</div></div>
+      <div class="kpi-item"><div class="kpi-name">Forecast Accuracy (%)</div><div class="kpi-desc">Demand forecast vs actual · Target >90% · AI models beat human >15%</div></div>
+      <div class="kpi-item"><div class="kpi-name">Data Quality Score</div><div class="kpi-desc">Clean, standardised spend data across ERP + POs + invoices + suppliers</div></div>
+      <div class="kpi-item"><div class="kpi-name">Real-time Dashboard Usage</div><div class="kpi-desc">% of decisions made from live data vs monthly reports = maturity indicator</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-hd">SECTION 7 · STRATEGIC SOURCING PROCESS (A.T. KEARNEY 7-STEP · VERIFIED GLOBAL STANDARD)</div>
+
+<div class="card" style="margin-bottom:12px;">
+  <div class="sourcing-steps">
+    <div class="ss" style="background:var(--navy-l);"><strong>1. Spend Analysis</strong><span>Analyse spend data, classify categories, identify savings opportunities</span></div>
+    <div class="ss-arrow">→</div>
+    <div class="ss" style="background:#e8f5ec;"><strong>2. Category Profiling</strong><span>Assess requirements, map supply market, identify Kraljic position</span></div>
+    <div class="ss-arrow">→</div>
+    <div class="ss" style="background:#e0f5f5;"><strong>3. Market Research</strong><span>Study supply market, benchmark prices, map manufacturer landscape</span></div>
+    <div class="ss-arrow">→</div>
+    <div class="ss" style="background:var(--amber-l);"><strong>4. Strategy Dev.</strong><span>Develop sourcing strategy, target pricing, negotiation approach</span></div>
+    <div class="ss-arrow">→</div>
+    <div class="ss" style="background:var(--red-l);"><strong>5. Supplier Engage.</strong><span>Conduct RFx process, evaluate bids on TCO basis</span></div>
+    <div class="ss-arrow">→</div>
+    <div class="ss" style="background:#f0ebff;"><strong>6. Negotiation</strong><span>Negotiate & finalise contracts with BATNA-backed strategy</span></div>
+    <div class="ss-arrow">→</div>
+    <div class="ss" style="background:var(--gold-l);"><strong>7. Implement & Manage</strong><span>Optimise, monitor KPIs, continuous improvement loop</span></div>
+  </div>
+</div>
+
+<div class="grid2" style="gap:10px;">
+<div>
+<div class="sec-hd" style="margin-top:0;">SECTION 8 · SUPPLY RISK MATRIX (AI-MONITORED · LIVE FLAGS)</div>
+<div class="card" style="margin-bottom:12px;">
+  <div class="card-title">6 Risk Flags + AI Mitigation Actions</div>
+  <div class="risk-box rb-high"><div class="rb-title h">HIGH — Single-Source Dependency</div><div class="rb-text">AI Action: Pre-qualify second vendor always, before need arises. KPI: Single-source ratio <20% of critical spend. Toyota Keiretsu model proof: survived 2011 earthquake faster than all competitors via supplier depth.</div></div>
+  <div class="risk-box rb-high"><div class="rb-title h">HIGH — Price Spike / Commodity Surge</div><div class="rb-text">AI Action: Forward buy or activate index-linked contracts automatically when commodity index rises >8%. Track LME/MCX/NYMEX via API. IKEA locked timber costs for decades via forest ownership.</div></div>
+  <div class="risk-box rb-med"><div class="rb-title m">MEDIUM — Vendor Financial Distress</div><div class="rb-text">AI Action: Credit check + payment term buffer at onboarding. Monitor Dun & Bradstreet / MCA filings quarterly. Flag >30-day payment delays to supplier = early distress indicator.</div></div>
+  <div class="risk-box rb-med"><div class="rb-title m">MEDIUM — Geopolitical / Trade Disruption</div><div class="rb-text">AI Action: Diversify sourcing across multiple regions proactively. Map % spend by country. China+1 strategy for critical categories. Near-shore (Zara model) beats far-shore on total disruption cost.</div></div>
+  <div class="risk-box rb-low"><div class="rb-title l">LOW — Quality / Compliance Failure</div><div class="rb-text">AI Action: On-site audit before any scale-up of volumes. ISO 9001 / BSCI / CTPAT certification mandate. Toyota Jidoka: stop-at-defect costs 1/100th of end-of-line detection.</div></div>
+  <div class="risk-box rb-low" style="margin-bottom:0;"><div class="rb-title l">LOW — Lead-Time Inflation</div><div class="rb-text">AI Action: Safety stock trigger fires automatic procurement alert. Dynamic safety stock = √(2 × Average Demand × Lead Time). Kanban pull system prevents both stockout and overstock simultaneously.</div></div>
+</div>
+</div>
+
+<div>
+<div class="sec-hd" style="margin-top:0;">SECTION 9 · AI TOOLS ECOSYSTEM FOR PROCUREMENT 2025</div>
+<div class="card" style="margin-bottom:12px;">
+  <div class="card-title">Present AI Stack (Proven · In Use)</div>
+  <div class="ai-tool-grid">
+    <div class="ai-tool"><div class="ai-tool-title">Claude AI (Anthropic)</div><div class="ai-tool-text">Should-cost modelling · Market mapping · RFQ drafting · Bid analysis · Negotiation scripts · Risk monitoring · 7-step procurement system (Balamurugan Framework)</div></div>
+    <div class="ai-tool"><div class="ai-tool-title">ERP / SAP / Tally</div><div class="ai-tool-text">PO tracking · Invoice matching (3-way) · Vendor SLA monitoring · Escalation alerts · Payment milestone tracking · Digital PO dashboard</div></div>
+    <div class="ai-tool"><div class="ai-tool-title">AI Demand Forecasting</div><div class="ai-tool-text">Walmart model: 500M+ product-store combos weekly. Factors: weather + local events + social media trends + historical velocity. Accuracy >90% AI vs 75% human</div></div>
+    <div class="ai-tool"><div class="ai-tool-title">Dynamic Pricing Monitor</div><div class="ai-tool-text">Amazon changes 2.5M prices/day. Buyer tool: CamelCamelCamel · Keepa · price history tracking · Buy on downward trend · Overstock = price floor signal</div></div>
+    <div class="ai-tool"><div class="ai-tool-title">RFID / IoT Inventory</div><div class="ai-tool-text">Walmart/Zara model: Real-time stock tracking. Every item tagged. Auto-replenishment trigger. Centralized hub (Arteixo model) = 48hr global restock. Zero stockouts at target 98% OTIF</div></div>
+    <div class="ai-tool"><div class="ai-tool-title">Fuel Optimization AI</div><div class="ai-tool-text">Route optimization (Google Maps API + ML) reduces fleet fuel 15-25%. Zara single-hub model (more ship cost, less inventory waste). Cross-docking (Walmart: 65% less handling). Load optimization = fewer trips</div></div>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="sec-hd">SECTION 10 · OPTIMUM INVENTORY MODEL (SCIENTIFIC FORMULAS)</div>
+<div class="grid2" style="gap:10px;margin-bottom:12px;">
+  <div class="card">
+    <div class="card-title">Inventory Formulas (Universal · Category-Agnostic)</div>
+    <div class="formula">
+      EOQ (Economic Order Qty) = √(2 × Demand × Ordering Cost ÷ Holding Cost per Unit)<br>
+      Safety Stock = Z-score × σ(lead time demand) &nbsp;|&nbsp; Z=1.65 for 95% service level<br>
+      Reorder Point = (Avg Daily Demand × Lead Time) + <span>Safety Stock</span><br>
+      Inventory Turnover = COGS ÷ Avg Inventory &nbsp;|&nbsp; Target: <span>>8× annually</span><br>
+      Days Inventory Outstanding (DIO) = 365 ÷ Inventory Turnover &nbsp;|&nbsp; Target: <span>< 45 days</span>
+    </div>
+    <div style="font-size:10px;font-family:'Arial',sans-serif;color:var(--ink2);line-height:1.6;"><strong style="color:var(--navy);">Abc-XYZ Matrix:</strong> A-items (80% value, 20% SKUs) = tight control, daily monitoring · B-items = weekly · C-items = monthly or min-max automatic. X = predictable demand, Y = variable, Z = erratic. AX = most critical, CZ = consider elimination.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Freight & Logistics Cost Optimization</div>
+    <div class="row"><div class="dot dot-n">1</div><div class="rt"><strong>Milk run routing:</strong> One truck covers multiple supplier pickups in optimized route. Reduces trips 40-60%. AI routing (Google OR-Tools) calculates minimum distance path across all stops.</div></div>
+    <div class="row"><div class="dot dot-g">2</div><div class="rt"><strong>Consolidation window:</strong> Hold orders 48-72 hours for consolidation into full truck load (FTL) vs LTL saves 35-50% per kg. AI groups orders by destination zone automatically.</div></div>
+    <div class="row"><div class="dot dot-gold">3</div><div class="rt"><strong>Backhaul utilization:</strong> Empty return truck = 100% cost waste. AI matches backhaul loads from nearby suppliers. Zara's Arteixo hub maximized backhaul on outbound trucks.</div></div>
+    <div class="row" style="margin:0;"><div class="dot dot-a">4</div><div class="rt"><strong>Mode shifting:</strong> Air vs Sea vs Rail vs Road TCO model. Air = 6× sea cost per kg. Sea = 3-4 week lead time. AI calculates crossover point at which sea is cheaper despite inventory holding cost.</div></div>
+  </div>
+</div>
+
+<div class="sec-hd">SECTION 11 · 7 ESSENTIAL PROCUREMENT FRAMEWORKS (FIELD-VERIFIED)</div>
+<div class="framework-grid" style="margin-bottom:12px;">
+  <div class="fw-box"><div class="fw-title">1. Kraljic Matrix</div><div class="fw-text">4 quadrants: Routine (automate), Leverage (competitive bidding), Bottleneck (secure supply), Strategic (partnership). Maps spend by profit impact vs supply risk. Start here for every new category.</div></div>
+  <div class="fw-box"><div class="fw-title">2. Total Cost of Ownership (TCO)</div><div class="fw-text">Purchase price is just 30-60% of true cost. Add: quality costs, logistics, inventory carrying (25-30% of value/yr), support, disposal. Toyota lesson: defect found at assembly = 100× cheaper than field recall.</div></div>
+  <div class="fw-box"><div class="fw-title">3. Make vs Buy Analysis</div><div class="fw-text">Make if: core competency, IP sensitive, volume justifies fixed cost. Buy if: non-core, supplier has scale advantage, capex too high. Reliance bucked this — made everything to own the margin chain.</div></div>
+  <div class="fw-box"><div class="fw-title">4. Porter's 5 Forces (Supplier)</div><div class="fw-text">Before any RFP: map buyer power vs supplier power, threat of substitutes, new entrant threat, competitive rivalry among suppliers. High supplier concentration = pre-negotiate before need arises.</div></div>
+  <div class="fw-box"><div class="fw-title">5. Carter's 10 Cs</div><div class="fw-text">Supplier selection: Competency · Capacity · Commitment · Control · Cash · Cost · Consistency · Culture · Clean (ESG) · Communication. Score each out of 10. Minimum 70% total to qualify.</div></div>
+  <div class="fw-box"><div class="fw-title">6. SWOT + PESTEL Analysis</div><div class="fw-text">SWOT for supplier health assessment. PESTEL for new supply market entry (Political risk, Exchange rate, Social norms, Technology disruption, Environmental regulation, Legal compliance across geographies).</div></div>
+</div>
+
+<div class="sec-hd">SECTION 12 · PAST → PRESENT → FUTURE ROADMAP</div>
+<div class="card" style="margin-bottom:12px;">
+  <div class="card-title">Procurement Evolution: From Transactional to AI-Autonomous</div>
+  <div class="future-row"><div class="fut-yr">Pre-2000<br>Past</div><div class="fut-text"><strong>Manual / Relationship Era:</strong> Paper POs, telephone RFQs, face-to-face negotiation. Information asymmetry maximum — buyer had minimal data. Price governed by relationship, not intelligence. Inventory = gut instinct. No KPIs except "did we get supply?"</div></div>
+  <div class="future-row"><div class="fut-yr">2000–2015<br>Digital</div><div class="fut-text"><strong>ERP / eSourcing Era:</strong> SAP/Oracle ERP adoption. E-auctions (reverse auction platforms). Spend analytics dashboards. Category management formalized. RFID begins in warehousing (Walmart 2004). TCO frameworks introduced. Procurement becomes a profession.</div></div>
+  <div class="future-row"><div class="fut-yr">2015–2023<br>Data-Led</div><div class="fut-text"><strong>Analytics / Cloud Era:</strong> Real-time spend dashboards. Supplier portals (Retail Link model). AI demand forecasting (Walmart/Amazon models). Dynamic pricing monitoring. ESG KPIs added to scorecards. Procurement moves from cost-centre to value creator. Zara RFID model scales globally.</div></div>
+  <div class="future-row"><div class="fut-yr">2024–2025<br>Present</div><div class="fut-text"><strong>AI-Powered Era (Current):</strong> Claude AI for should-cost + negotiation scripts (Balamurugan Framework active). Autonomous PO generation. Predictive supplier risk scoring. AI contract clause extraction. ChatGPT/Claude for RFQ drafting. 60%+ touchless procurement achievable. Amazon-style demand-inventory coupling live.</div></div>
+  <div class="future-row" style="margin-bottom:0;background:var(--navy-l);border-left:3px solid var(--gold);"><div class="fut-yr" style="color:var(--gold);border-right-color:var(--gold);">2026–2030<br>Future</div><div class="fut-text"><strong>Autonomous / Agentic Procurement:</strong> Fully autonomous procurement agents (AI places orders, monitors quality, renegotiates on price triggers without human input). Blockchain smart contracts auto-execute on delivery confirmation. Digital twin supply chains simulate disruptions before they happen. Quantum computing optimizes global multi-tier supply chain simultaneously. Drone/autonomous delivery routes self-optimize. Carbon trading integrated into every PO as automatic offset.</div></div>
+</div>
+
+<div class="sec-hd">SECTION 13 · 12-POINT PROCUREMENT MATURITY CHECKLIST</div>
+<div class="card" style="margin-bottom:12px;">
+  <div class="checklist-col">
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Strategy linked to business goals — procurement at Board level</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>KPIs track value beyond savings — impact, not just cost</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Spend under management >85% — zero maverick spend</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Suppliers segmented strategically using Kraljic Matrix</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Category strategies use market analysis + should-cost models</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Centralized contract repository with automated renewal alerts</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Single-source dependency <20% for all critical categories</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>RFID/IoT real-time inventory tracking — no manual count</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>AI-driven demand forecasting accuracy >90% per category</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>ESG supplier scorecard active — carbon footprint tracked</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Touchless procurement rate >60% — PO cycle time <24hr</div></div>
+    <div class="ck-item"><div class="ck-icon">✓</div><div>Team trained in AI tools, negotiation, TCO, risk management</div></div>
+  </div>
+</div>
+
+<div class="final-strip">
+  <div class="fs-title">PROCUREMENT = STRATEGIC BUSINESS ENGINE · The Best CPOs Don't Just Track Spend — They Track Impact</div>
+  <div class="fs-grid">
+    <div class="fs-box"><div class="fs-label"><strong>Cost Intelligence</strong>Should-cost · TCO · Price floor · Channel bypass · 30-75% savings potential</div></div>
+    <div class="fs-box"><div class="fs-label"><strong>Risk Resilience</strong>Dual source · AI risk flags · Geopolitical diversification · Business continuity score</div></div>
+    <div class="fs-box"><div class="fs-label"><strong>AI Automation</strong>7-step Claude framework · Touchless PO · Demand forecast · Contract AI · RFQ automation</div></div>
+    <div class="fs-box"><div class="fs-label"><strong>ESG Leadership</strong>Zero-waste fuel (₹85L saved) · LED green conversion · Carbon tracking · Sustainable spend</div></div>
+    <div class="fs-box"><div class="fs-label"><strong>Inventory Mastery</strong>EOQ · Safety stock formula · ABC-XYZ · JIT-Kanban · RFID real-time · <45 day DIO target</div></div>
+  </div>
+</div>
+
+</div>
+
+<div style="background:var(--navy);padding:6px 20px;display:flex;justify-content:space-between;align-items:center;">
+  <span style="color:rgba(255,255,255,0.5);font-size:9px;font-family:'Arial',sans-serif;letter-spacing:1px;">BALAMURUGAN G · balamurugan_gp@yahoo.com · +91 98942 97515 · linkedin.com/in/bala-murugan · IIMM F/3737/MD · Open to DGM / Senior Procurement Director Roles</span>
+  <span style="color:var(--gold);font-size:9px;font-family:'Arial',sans-serif;letter-spacing:1px;font-weight:700;">END OF MASTERSHEET · 2025 EDITION</span>
+</div>
+</div>

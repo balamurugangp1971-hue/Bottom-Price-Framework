@@ -1,0 +1,285 @@
+
+<style>
+:root{--ink:#0a0a0a;--ink2:#3a3a3a;--ink3:#6b6b6b;--gold:#b8860b;--gold-l:#f5e6b8;--navy:#0c2340;--navy-m:#1a3a5c;--navy-l:#e8f0f8;--red:#8b1a1a;--red-l:#fae8e8;--green:#1a5c2a;--green-l:#e8f5ec;--teal:#0a4a4a;--teal-l:#e0f5f5;--amber:#7a4a00;--amber-l:#fdf0dc;--border:rgba(0,0,0,0.12);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Georgia',serif;background:transparent;color:var(--ink);}
+.page{width:100%;max-width:900px;margin:0 auto;padding:0 0 24px;}
+.masthead{background:var(--navy);padding:20px 28px 18px;position:relative;overflow:hidden;}
+.masthead::before{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(184,134,11,0.3);}
+.masthead::after{content:'';position:absolute;right:20px;bottom:-40px;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);}
+.mh-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;}
+.mh-title{color:#fff;font-size:28px;font-weight:700;line-height:1.1;letter-spacing:-0.5px;}
+.mh-title span{color:var(--gold);}
+.mh-badge{background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:2px;white-space:nowrap;margin-top:4px;}
+.mh-sub{color:rgba(255,255,255,0.7);font-size:11px;font-family:'Arial',sans-serif;margin-top:8px;line-height:1.5;}
+.mh-stats{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;}
+.mhs{background:rgba(255,255,255,0.08);border:1px solid rgba(184,134,11,0.4);padding:8px 14px;text-align:center;}
+.mhs-n{font-size:20px;font-weight:700;color:var(--gold);display:block;font-family:'Arial',sans-serif;}
+.mhs-l{font-size:9px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;display:block;margin-top:2px;}
+.pg-label{font-size:9px;color:rgba(255,255,255,0.4);font-family:'Arial',sans-serif;letter-spacing:2px;text-transform:uppercase;margin-top:12px;}
+.body{padding:16px 20px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;}
+.card{background:#fff;border:0.5px solid var(--border);padding:12px 14px;}
+.card-title{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:6px;}
+.sec-hd{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin:14px 0 8px;padding:6px 10px;background:var(--navy-l);border-left:3px solid var(--gold);}
+.row{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;}
+.dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;}
+.dot-n{background:var(--navy);color:#fff;}
+.dot-g{background:var(--green);color:#fff;}
+.dot-r{background:var(--red);color:#fff;}
+.dot-a{background:var(--amber);color:#fff;}
+.dot-t{background:var(--teal);color:#fff;}
+.dot-gold{background:var(--gold);color:var(--navy);}
+.rt{font-size:11px;color:var(--ink2);line-height:1.5;}
+.rt strong{color:var(--ink);font-weight:700;}
+.formula{background:var(--navy);padding:8px 12px;margin:8px 0;font-size:10px;color:#fff;font-family:'Arial',sans-serif;line-height:1.7;}
+.formula span{color:var(--gold);font-weight:700;}
+.table-sm{width:100%;border-collapse:collapse;font-size:10px;font-family:'Arial',sans-serif;}
+.table-sm th{background:var(--navy);color:#fff;padding:5px 8px;text-align:left;font-size:9px;letter-spacing:0.5px;}
+.table-sm td{padding:4px 8px;border-bottom:0.5px solid var(--border);color:var(--ink2);}
+.table-sm td:first-child{color:var(--ink);font-weight:600;}
+.table-sm tr:nth-child(even) td{background:rgba(0,0,0,0.02);}
+.pill{display:inline-block;font-size:9px;padding:2px 8px;border-radius:2px;font-weight:700;letter-spacing:0.5px;margin:2px;font-family:'Arial',sans-serif;}
+.pill-n{background:var(--navy-l);color:var(--navy);}
+.pill-g{background:var(--green-l);color:var(--green);}
+.pill-r{background:var(--red-l);color:var(--red);}
+.pill-a{background:var(--amber-l);color:var(--amber);}
+.pill-gold{background:var(--gold-l);color:var(--amber);}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;}
+.kpi{background:var(--navy-l);padding:8px;text-align:center;}
+.kpi-val{font-size:16px;font-weight:700;color:var(--navy);display:block;font-family:'Arial',sans-serif;}
+.kpi-lbl{font-size:9px;color:var(--ink3);margin-top:2px;line-height:1.3;}
+.flow-row{display:flex;gap:0;margin:8px 0;}
+.flow-box{flex:1;background:var(--navy-l);border:0.5px solid rgba(12,35,64,0.2);padding:6px 8px;font-size:9.5px;text-align:center;font-family:'Arial',sans-serif;position:relative;}
+.flow-box strong{display:block;color:var(--navy);font-size:10px;font-weight:700;}
+.flow-box span{color:var(--ink3);font-size:9px;}
+.flow-arrow{display:flex;align-items:center;padding:0 3px;color:var(--gold);font-size:14px;font-weight:700;}
+.highlight-box{background:var(--gold-l);border:1px solid var(--gold);padding:8px 12px;margin:8px 0;font-size:10.5px;font-family:'Arial',sans-serif;line-height:1.6;color:var(--amber);}
+.highlight-box strong{color:var(--navy);font-size:11px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.case-strip{background:var(--navy);padding:8px 14px;margin:8px 0;display:flex;align-items:center;gap:12px;}
+.case-num{font-size:24px;font-weight:700;color:var(--gold);font-family:'Arial',sans-serif;min-width:44px;}
+.case-text{color:#fff;font-size:11px;font-family:'Arial',sans-serif;line-height:1.5;}
+.case-text strong{color:var(--gold);}
+.divider{border:none;border-top:1px solid var(--border);margin:10px 0;}
+.mini-tag{font-size:9px;font-family:'Arial',sans-serif;padding:1px 6px;border-radius:1px;display:inline-block;}
+.ai-badge{background:linear-gradient(90deg,#0c2340,#1a3a5c);color:#b8860b;font-size:9px;padding:2px 8px;font-family:'Arial',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-block;}
+.step-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
+.step-num{width:22px;height:22px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Arial',sans-serif;}
+.step-text{font-size:10.5px;color:var(--ink2);line-height:1.5;font-family:'Arial',sans-serif;}
+.step-text strong{color:var(--ink);font-weight:700;}
+.step-text em{color:var(--green);font-style:normal;font-weight:700;font-size:9.5px;}
+.multiplier-row{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:8px 0;}
+.mult-box{background:#fff;border:0.5px solid var(--border);padding:8px 6px;text-align:center;}
+.mult-cat{font-size:9px;color:var(--ink3);font-family:'Arial',sans-serif;}
+.mult-val{font-size:13px;font-weight:700;color:var(--navy);font-family:'Arial',sans-serif;}
+.mult-pct{font-size:9px;color:var(--green);font-family:'Arial',sans-serif;}
+</style>
+
+<div class="page">
+<div class="masthead">
+  <div class="mh-top">
+    <div>
+      <div class="mh-title">THE COMPLETE PROCUREMENT<br><span>INTELLIGENCE MASTERSHEET</span></div>
+      <div class="mh-sub">Compiled by Balamurugan G · Senior Supply Chain & Procurement Leader · 20+ Years · Chennai, India<br>IIMM Full Member F/3737/MD · ISO 9001 · CTPAT · BSCI · AI-Powered Procurement Practitioner</div>
+    </div>
+    <div>
+      <div class="mh-badge">Page 1 of 2</div>
+      <div class="mh-badge" style="margin-top:4px;background:transparent;color:#b8860b;border:1px solid #b8860b;">From Factory Floor to AI</div>
+    </div>
+  </div>
+  <div class="mh-stats">
+    <div class="mhs"><span class="mhs-n">₹85L</span><span class="mhs-l">Annual Savings (Init. A+B)</span></div>
+    <div class="mhs"><span class="mhs-n">20+yr</span><span class="mhs-l">Perpetual Fuel Savings</span></div>
+    <div class="mhs"><span class="mhs-n">60%</span><span class="mhs-l">LED Energy Reduction</span></div>
+    <div class="mhs"><span class="mhs-n">7-Step</span><span class="mhs-l">AI Procurement System</span></div>
+    <div class="mhs"><span class="mhs-n">30-75%</span><span class="mhs-l">Max Savings via Channel Bypass</span></div>
+  </div>
+  <div class="pg-label">Reference Sheet · Version 2025 · For DGM / Senior Procurement Director Use</div>
+</div>
+
+<div class="body">
+
+<div class="sec-hd">SECTION 1 · THE UNIVERSAL PRICE ANATOMY — WHERE EVERY RUPEE GOES</div>
+
+<div class="card" style="margin-bottom:12px;">
+  <div class="card-title">The Price Ladder: From Factory to Consumer (Universal Formula)</div>
+  <div class="flow-row">
+    <div class="flow-box" style="background:var(--green-l);"><strong>Raw Material</strong><span>Commodity cost</span></div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-box"><strong>Labour+OH</strong><span>Mfg cost</span></div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-box"><strong>Mfg Margin</strong><span>5-15%</span></div>
+    <div class="flow-arrow">=</div>
+    <div class="flow-box" style="background:var(--teal-l);"><strong>Ex-Factory</strong><span>True floor price</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box"><strong>C&F Agent</strong><span>+5-8%</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box"><strong>Distributor</strong><span>+15-25%</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box"><strong>Retailer</strong><span>+25-50%</span></div>
+    <div class="flow-arrow">=</div>
+    <div class="flow-box" style="background:var(--red-l);"><strong>MRP</strong><span>Consumer pays</span></div>
+  </div>
+
+  <div class="multiplier-row">
+    <div class="mult-box"><div class="mult-cat">FMCG</div><div class="mult-val">2.5–3.5×</div><div class="mult-pct">28–40% of MRP is true cost</div></div>
+    <div class="mult-box"><div class="mult-cat">Electronics</div><div class="mult-val">1.4–1.8×</div><div class="mult-pct">55–70% of MRP is true cost</div></div>
+    <div class="mult-box"><div class="mult-cat">Apparel</div><div class="mult-val">3–6×</div><div class="mult-pct">17–33% of MRP is true cost</div></div>
+    <div class="mult-box"><div class="mult-cat">Pharma/OTC</div><div class="mult-val">3–5×</div><div class="mult-pct">20–33% of MRP is true cost</div></div>
+    <div class="mult-box"><div class="mult-cat">Industrial</div><div class="mult-val">1.3–2×</div><div class="mult-pct">50–75% of MRP is true cost</div></div>
+    <div class="mult-box"><div class="mult-cat">Jewellery</div><div class="mult-val">1.2–1.6×</div><div class="mult-pct">62–83% of MRP is true cost</div></div>
+  </div>
+
+  <div class="formula">
+    True Manufacturer Floor = MRP ÷ Channel Multiplier &nbsp;|&nbsp; Fair Consumer Price = Ex-Factory × <span>1.5 to 2.0</span> &nbsp;|&nbsp; Negotiation Floor = Ex-Factory × <span>1.35</span><br>
+    Overpayment = MRP − (Ex-Factory × 2) &nbsp;|&nbsp; Example pen: Ex-factory ₹2 · MRP ₹5 · Overpayment <span>₹1–2 (20–40%)</span>
+  </div>
+</div>
+
+<div class="sec-hd">SECTION 2 · THE PRICE INTELLIGENCE FRAMEWORK (P-R-I-C-E)</div>
+
+<div class="grid2" style="gap:10px;">
+  <div class="card">
+    <div class="card-title">P — Product Cost Deconstruction</div>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>HSN Code Search:</strong> GST rates are public. Reverse GST to find base trade price. If MRP ₹118 on 18% GST item → base ₹100 → trade discount 25-40% → trade price <em>₹60–75</em></div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Should-Cost Model (AI):</strong> AI builds BOM-level cost breakdown: raw material + labour + overhead + fair margin. <em>Buyer negotiates from knowledge, not hope.</em></div>
+    </div>
+    <div class="step-row" style="border:none;margin:0;padding:0;">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Alibaba International Cross-check:</strong> Ex-factory price + import duty + logistics (20-35%) = landed India equivalent. Reveals true global floor price for any manufactured good.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">R — Route Intelligence (Channel Bypass)</div>
+    <table class="table-sm">
+      <tr><th>Skip This Layer</th><th>Go Here Instead</th><th>Savings</th></tr>
+      <tr><td>Retailer only</td><td>Distributor/wholesale market</td><td style="color:var(--green);font-weight:700;">20–35%</td></tr>
+      <tr><td>Dist + Retailer</td><td>Stockist / C&F Agent</td><td style="color:var(--green);font-weight:700;">35–50%</td></tr>
+      <tr><td>All trade layers</td><td>Manufacturer direct</td><td style="color:var(--green);font-weight:700;">50–65%</td></tr>
+      <tr><td>All + negotiation</td><td>Factory surplus/B2B portal</td><td style="color:var(--green);font-weight:700;">60–75%</td></tr>
+    </table>
+    <div style="margin-top:8px;">
+      <span class="pill pill-n">IndiaMart/TradeIndia</span>
+      <span class="pill pill-n">GeM Portal</span>
+      <span class="pill pill-n">Alibaba B2B</span>
+      <span class="pill pill-g">Factory Outlets</span>
+      <span class="pill pill-g">Sadar Bazar (Delhi)</span>
+      <span class="pill pill-g">Ranganathan St (Chennai)</span>
+    </div>
+  </div>
+</div>
+
+<div class="grid2" style="gap:10px;">
+  <div class="card">
+    <div class="card-title">I — Information Asymmetry Reduction (5-Point Checklist)</div>
+    <div class="row"><div class="dot dot-n">1</div><div class="rt"><strong>HSN code lookup</strong> — exposes embedded tax chain and trade margins in every invoice</div></div>
+    <div class="row"><div class="dot dot-n">2</div><div class="rt"><strong>MRP legal pack audit</strong> — manufacturer name/address printed legally (Legal Metrology Act India) = first sourcing lead</div></div>
+    <div class="row"><div class="dot dot-n">3</div><div class="rt"><strong>Amazon/Flipkart seller data</strong> — 3P seller price minus platform commission (15-30%) = distributor price approximation</div></div>
+    <div class="row"><div class="dot dot-n">4</div><div class="rt"><strong>GeM catalogue benchmark</strong> — government procurement prices = excellent independent price benchmark for thousands of categories</div></div>
+    <div class="row" style="margin:0;"><div class="dot dot-n">5</div><div class="rt"><strong>Reverse GST formula</strong> — strip tax layer to reveal true trade base price before any markup calculation</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">C — Competitive Benchmarking · E — Execution</div>
+    <div style="font-size:10px;font-family:'Arial',sans-serif;color:var(--ink2);line-height:1.6;margin-bottom:8px;"><strong style="color:var(--navy);">For Individuals:</strong> Buy 6-12 units (triggers distributor pricing) · Form buying groups (10-20 households = wholesale access) · End-of-season buys near factory cost · Subscribe-and-save models lock near-wholesale rates</div>
+    <div class="divider"></div>
+    <div style="font-size:10px;font-family:'Arial',sans-serif;color:var(--ink2);line-height:1.6;margin-bottom:8px;"><strong style="color:var(--navy);">For MSMEs:</strong> Register GeM/IndiaMart as buyer · Cash advance buyers get 10-15% off trade price · Reverse auctions (publish requirement, let suppliers bid down) · Join CAIT/CII for bulk negotiated rates</div>
+    <div class="divider"></div>
+    <div style="font-size:10px;font-family:'Arial',sans-serif;color:var(--ink2);line-height:1.6;"><strong style="color:var(--navy);">For Procurement Professionals (SCM):</strong> TCO analysis · Should-Cost modelling from BOM up · Dual/multi-sourcing always · Long-term contracts with commodity index-linked escalation caps</div>
+  </div>
+</div>
+
+<div class="sec-hd">SECTION 3 · BALAMURUGAN'S 3 PERPETUAL SAVINGS INITIATIVES (VERIFIED LIVE RESULTS)</div>
+
+<div class="case-strip">
+  <div class="case-num">A</div>
+  <div class="case-text"><strong>Zero-Waste Fuel Conversion — ₹85 Lakh Net Annual Savings · 20+ Years Running</strong><br>Identified calorific value of factory combustible waste sufficient to fuel wood-fire industrial boiler. Re-engineered waste segregation workflow → combustible by-products channelled to boiler feed area. Eliminated BOTH waste disposal cost AND fuel procurement budget simultaneously. Zero capex. Zero additional headcount. Dual perpetual savings stream.</div>
+</div>
+<div class="case-strip" style="background:var(--navy-m);">
+  <div class="case-num">B</div>
+  <div class="case-text"><strong>Full-Factory LED Green Conversion — ~60% Electricity Reduction · NIL Capital Budget</strong><br>Policy innovation: replace every fluorescent tube with LED equivalent ONLY at moment of failure. No forced replacement. No capital allocation. Over time, entire facility converted to LED through procurement policy alone. 100% green conversion. ESG outcome delivered without a single dedicated project budget. Lumen spec matched to original → no re-wiring needed.</div>
+</div>
+<div class="case-strip" style="background:#0a1828;">
+  <div class="case-num">C</div>
+  <div class="case-text"><strong>AI-Powered Procurement System — 7-Step Claude AI Framework (Active)</strong><br>Systematic AI-assisted procurement using Claude (Anthropic) to identify true manufacturer floor prices, eliminate information asymmetry, and mitigate supply risk. Universal strategy applicable across any category. See Section 5 for full 7-step breakdown.</div>
+</div>
+
+<div class="sec-hd">SECTION 4 · WORLD'S BEST PRICING STRATEGIES — 10 COMPANY LESSONS FOR BUYERS</div>
+
+<div class="grid2" style="gap:10px;">
+  <div class="card">
+    <div class="card-title">Cost-Side Strategies (How Sellers Reduce Cost — Buyers Must Mirror This)</div>
+    <div class="row"><div class="dot dot-n">C</div><div class="rt"><strong>Costco Method:</strong> 4,000 SKUs only (vs 30,000+) creates massive volume per item → unmatched supplier leverage. <em>Buyer lesson: Consolidate categories, reduce SKU count, concentrate volume for better price.</em></div></div>
+    <div class="row"><div class="dot dot-gold">I</div><div class="rt"><strong>IKEA Design-to-Cost:</strong> Price determines design, not vice versa. Flat-pack = 80% shipping cost reduction. Own forest = raw material at 3-layer-below-market price. <em>Buyer: Start with target cost, engineer backward.</em></div></div>
+    <div class="row"><div class="dot dot-g">T</div><div class="rt"><strong>Toyota JIT:</strong> Parts arrive exactly when needed. Zero storage waste. Kanban triggers replenishment automatically. Keiretsu = joint cost reduction with suppliers. <em>Buyer: JIT reduces working capital 20-30%.</em></div></div>
+    <div class="row" style="margin:0;"><div class="dot dot-a">W</div><div class="rt"><strong>Walmart EDLC:</strong> Cross-docking (65% less handling), AI forecasting for 500M+ product-store combos, Retail Link data sharing with suppliers, private label 30-40% higher margin. <em>Buyer: Share demand data with key suppliers.</em></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Price-Side Strategies (How Sellers Protect Margin — Buyers Must Defeat This)</div>
+    <div class="row"><div class="dot dot-r">Am</div><div class="rt"><strong>Amazon Dynamic Pricing:</strong> 2.5M price changes/day · Every 10 min · Demand + inventory + competitor + user profile. <em>Buyer counter: Track price history (CamelCamelCamel), buy on downward trend, buy overstock = lowest price.</em></div></div>
+    <div class="row"><div class="dot dot-r">Ap</div><div class="rt"><strong>Apple Value Pricing:</strong> Ecosystem lock-in + status + services flywheel = price inelasticity. 65-75% of smartphone profits on 15-20% volume. <em>Buyer counter: Never let one supplier create ecosystem lock-in. Dual source always.</em></div></div>
+    <div class="row"><div class="dot dot-t">Ad</div><div class="rt"><strong>Adobe Subscription:</strong> 88% recurring revenue · ₹ stickiness via switching cost. Student pricing funnel. <em>Buyer counter: Negotiate multi-year contracts at subscription launch pricing. Lock in before price increases.</em></div></div>
+    <div class="row" style="margin:0;"><div class="dot dot-gold">Z</div><div class="rt"><strong>Zara Scarcity:</strong> Small-batch production → less than 10% unsold vs 35% industry. Urgency = full-price sale. <em>Buyer counter: Buy early in season / pre-order for best price. Avoid artificial scarcity premium.</em></div></div>
+  </div>
+</div>
+
+<div class="highlight-box">
+  <strong>The Fundamental Truth (Your Pricing Philosophy):</strong> The price a consumer pays is not the value of the product — it is the cost of information asymmetry plus channel inefficiency. Every rupee above fair price is rent paid to intermediaries who hold information the consumer does not. The same principle applies in B2B procurement. The buyer's job is to collapse this information gap systematically — using AI, data, relationships, and TCO analysis — until they reach the manufacturer's true floor.
+</div>
+
+<div class="sec-hd">SECTION 5 · THE 7-STEP AI-POWERED PROCUREMENT SYSTEM (BALAMURUGAN FRAMEWORK)</div>
+
+<div class="card" style="margin-bottom:0;">
+  <div class="card-title"><span class="ai-badge">Claude AI · Live Framework</span>&nbsp; Universal Application Across Any Category</div>
+  <div class="grid2" style="gap:12px;">
+    <div>
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Market Intelligence Mapping</strong><br>Prompt AI to map all manufacturers, distributors and traders for the category — globally and domestically. <em>→ True price ladder revealed before any RFQ issued</em></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Should-Cost Model Build</strong><br>AI constructs BOM-level cost breakdown: raw material + labour + overhead + fair margin using commodity APIs. <em>→ Theoretical floor price before first supplier contact</em></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Precision RFQ Design</strong><br>AI drafts RFQ that strips non-comparable variables. Apples-to-apples quotes enforced. Suppliers cannot hide costs in spec differences. <em>→ Every quote directly comparable</em></div>
+      </div>
+      <div class="step-row" style="border:none;margin:0;padding:0;">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>AI Bid Analysis</strong><br>AI compares bids, flags outliers, normalises payment terms, freight, MOQ to true landed cost. <em>→ Lowest true cost identified; hidden leakages exposed</em></div>
+      </div>
+    </div>
+    <div>
+      <div class="step-row">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>Negotiation Script Generation</strong><br>AI generates negotiation script with BATNA, target price, walk-away point and counter-offer tactics via roleplay mode. <em>→ Data-backed anchors; emotional guesswork eliminated</em></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">6</div>
+        <div class="step-text"><strong>Digital PO Tracker</strong><br>All POs tracked digitally — delivery status, payment milestones, vendor SLA compliance in real time via ERP/Tally + digital dashboard. <em>→ Zero invoice disputes; auto-escalation alerts</em></div>
+      </div>
+      <div class="step-row" style="border:none;margin:0;padding:0;">
+        <div class="step-num">7</div>
+        <div class="step-text"><strong>Supply Risk Monitor</strong><br>AI flags single-source dependency, geopolitical exposure, vendor financial health via news feed APIs. <em>→ Alternate vendor pre-qualified before crisis materialises</em></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div style="background:var(--navy);padding:6px 20px;display:flex;justify-content:space-between;align-items:center;">
+  <span style="color:rgba(255,255,255,0.5);font-size:9px;font-family:'Arial',sans-serif;letter-spacing:1px;">BALAMURUGAN G · balamurugan_gp@yahoo.com · +91 98942 97515 · linkedin.com/in/bala-murugan</span>
+  <span style="color:var(--gold);font-size:9px;font-family:'Arial',sans-serif;letter-spacing:1px;font-weight:700;">PAGE 1 OF 2 → CONTINUED</span>
+</div>
+</div>
